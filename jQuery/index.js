@@ -14,3 +14,22 @@ $("button").html("<em>Goodbye</em>");
 $("button").click(function() {
   $("h1").css("color", "purple");
 });
+
+//detect which key was pressed in the input box
+$("input").keypress(function(event) {
+  $("h1").text(event.key);
+});
+
+
+//adding animation
+$("button").click(function() {
+  $("h1").toggle();
+  //.show(), .toggle(), .fadeOut(), .fadeIn(),
+  //.fadeToggle(), .slideUp(), .slideDown(), slideToggle()
+
+  $("h1").animate({opacity: 0.5});
+
+//can do a lot of things at once
+  //slide up first then down then change opacity
+  $("h1").slideUp().slideDown().animate({opacity:0.5});
+});
