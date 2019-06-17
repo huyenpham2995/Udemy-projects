@@ -93,3 +93,22 @@ Fruit.deleteOne({name: "banana"}, function(err){
      });
    }
  });
+
+//establish relationship between person and fruit
+const personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Missing required field"]
+  },
+  age: Int,
+  favouriteFruit: fruitSchema
+});
+
+const person = new mongoose.model("Person", personSchema);
+const john = new Person({
+  name: "John",
+  age: 37,
+  favouriteFruit: banana
+});
+
+john.save();
